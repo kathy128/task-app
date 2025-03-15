@@ -1,0 +1,38 @@
+<div
+  class="flex p-[1rem] flex-col h-[auto] border-[#FFC1CC] border-[3px] rounded-[28px] dark:border-[#8B2D50] dark:bg-[#EFBDDA] bg-white">
+  <div class="flex justify-center items-center">
+    <h2
+      class="tablet:text-2xl mobile:text-xl font-semibold text-[#C40877]">{{edit ? 'Editar' : 'Agregar'}}
+      tarea</h2>
+  </div>
+  <form [formGroup]="taskForm" class="flex flex-start flex-col gap-2">
+    <div class="gap-[0.2rem] flex flex-col">
+      <label class="text-[#C40877]" for="title">Titulo* </label>
+      <input [ngClass]="{'border-red-500': taskForm.get('title')?.invalid &&  taskForm.dirty}" class="border-[#D95991] dark:border-[#8B2D50] border-[2px] rounded-xl px-[1rem] py-[0.5rem] focus:border-[#8B2D50]" id="title" type="text" formControlName="title">
+      <p *ngIf="taskForm.get('title')?.invalid && taskForm.dirty" class="text-[#8b2d50] text-sm">El título es obligatorio.</p>
+    </div>
+    <div class="gap-[0.2rem] flex flex-col">
+      <label class="text-[#C40877]" for="description">Descripción* </label>
+      <input [ngClass]="{'border-red-500': taskForm.get('description')?.invalid &&  taskForm.dirty}" class="border-[#D95991] dark:border-[#8B2D50] border-[2px] px-[1rem] py-[0.5rem] rounded-xl" id="description" type="text" formControlName="description">
+      <p *ngIf="taskForm.get('description')?.invalid && taskForm.dirty" class="text-[#8b2d50] text-sm">La descripción es obligatoria.</p>
+    </div>
+    <div class="gap-[0.2rem] flex flex-col">
+      <label class="text-[#C40877]" for="description">Estado </label>
+      <div class="flex flex-start gap-4">
+        <button (click)="selectStatus('complete')"
+                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 'complete'), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 'complete')}"
+                class="dark:text-[#f8e9eb] p-2 rounded-3xl flex text-sm items-center">Completada
+        </button>
+        <button (click)="selectStatus('pending')"
+                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 'pending'), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 'pending')}"
+                class="dark:text-[#f8e9eb] p-2 rounded-3xl text-sm flex items-center">Pendiente
+        </button>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-2 mt-[1rem]">
+      <button (click)="close()" class="px-4 py-2 bg-[#F4A261] text-white rounded transition-transform transform hover:scale-110">Cancelar</button>
+      <button (click)="save()" class="px-4 py-2 bg-[#6fafbc] text-white rounded transition-transform transform hover:scale-110">Guardar</button>
+    </div>
+  </form>
+</div>

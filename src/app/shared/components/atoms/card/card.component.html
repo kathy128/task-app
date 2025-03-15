@@ -1,1 +1,15 @@
-<p>card works!</p>
+<div class="p-4 rounded-lg shadow-md border-l-8 dark:border-[#8b2d50] dark:bg-[#8b2d5087] bg-[#ffc1cc6b] border-l-[#FFA0B9]">
+  <div class="flex justify-between">
+    <h2 class="text-lg text-[#C40877] dark:text-[#ffe5ea] font-semibold">{{ task.title }}</h2>
+    <img (click)="editInfo()" src="assets/icons/lapiz-y-regla.png" alt="edit-icon" class="w-[1.5rem] h-[1.5rem] transition-transform transform hover:scale-110">
+  </div>
+  <h3 class="text-lg text-[#C40877] dark:text-[#ffe5ea] font-medium">{{ task.description }}</h3>
+  <div class="mt-2 flex justify-between">
+    <button (click)="toggleComplete()" class="text-white px-2 py-1 rounded transition-transform transform hover:scale-110"
+            [ngClass]="task.completed ? 'bg-[#6fafbc]' : 'bg-[#F4A261]'">
+      {{ task.completed ? 'Completada' : 'Pendiente' }}
+    </button>
+    <button (click)="deleteTask()" class="bg-[#ff5764] text-white px-2 py-1 rounded transition-transform transform hover:scale-110">Eliminar</button>
+  </div>
+</div>
+
