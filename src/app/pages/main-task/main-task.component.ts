@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {CardComponent} from '../../shared/components/atoms/card/card.component';
 import {AddTaskComponent} from '../../shared/components/organism/add-task/add-task.component';
 import {MatDialog} from '@angular/material/dialog';
+import {ThemeService} from '../../services/theme.service';
 
 @Component({
   selector: 'app-main-task',
@@ -21,11 +22,11 @@ export class MainTaskComponent {
   allTasks: TaskForm[] = [];
   tasks: TaskForm[] = [
     {id: 0, title: 'Task #', description: 'una tarea', completed: false},
-    {id: 0, title: 'Task #', description: 'una tarea', completed: true},
-    {id: 0, title: 'Task #', description: 'una tarea', completed: true},
+    {id: 1, title: 'Task #', description: 'una tarea', completed: true},
+    {id: 2, title: 'Task #', description: 'una tarea', completed: true},
   ];
   remainTask: number = 0;
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, public themeService: ThemeService) {
     this.allTasks = this.tasks;
   }
 
@@ -43,7 +44,12 @@ export class MainTaskComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.tasks.push(result);
+        if(task) {
+          let id = this.tasks.findIndex(t => task.id === t.id);
+          this.tasks[id] = result;
+        }else{
+          this.tasks.push(result);
+        }
       }
     });
   }

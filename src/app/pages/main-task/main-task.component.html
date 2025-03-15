@@ -1,12 +1,12 @@
 <main class="w-full overflow-y-auto h-[calc(100vh-112px)] dark:bg-[#efbdda] bg-white mt-[4rem] block">
-  <div class="rounded-[10px] bg-[#D95991] dark:bg-[#933558] h-[30%] w-[30%] p-4 m-4">
+  <div class="rounded-[25px] bg-[#D95991] dark:bg-[#933558] w-[90%] p-6 m-4 sm:w-[320px]">
     <p class="text-[#f8e9eb] dark:text-[#f8e9eb] mt-2">{{ completionPercentage }}% completado</p>
     <div class="w-full border-white border-[1px] rounded mt-4">
       <div class="h-2 rounded bg-[#f8e9eb] bg-[#f8e9eb]" [style.width]="completionPercentage + '%'" transition-all></div>
     </div>
     <div class="flex w-full pt-4">
       <p class="text-l font-bold text-[#f8e9eb] dark:text-[#f8e9eb] mt-2">Tienes {{ remainTask }} tareas más por hacer</p>
-      <img src="assets/icons/pagina.png" alt="task-icon" class="w-[3.5rem] h-[3.5rem] rotate-45">
+      <img [src]="themeService.isDarkMode()?'assets/icons/lista.png':'assets/icons/listal.png'" alt="task-icon" class="w-[3.5rem] h-[3.5rem] rotate-45">
     </div>
   </div>
   <div class="flex gap-4 sm:p-8 p-4 justify-between">

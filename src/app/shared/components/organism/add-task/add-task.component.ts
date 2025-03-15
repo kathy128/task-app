@@ -15,17 +15,15 @@ export class AddTaskComponent implements OnInit{
   taskForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    status: new FormControl(''),
+    status: new FormControl('complete'),
   });
   edit: boolean = false;
   constructor(
     public dialogRef: MatDialogRef<AddTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TaskForm
-  ) {
-    this.taskForm.get('status')?.setValue('complete');
-  }
+  ) {}
   ngOnInit(): void {
-    if(this.data) this.fillData();
+    if(Object.keys(this.data).length !== 0) this.fillData();
   }
   close() {
     this.dialogRef.close(null);
@@ -34,9 +32,6 @@ export class AddTaskComponent implements OnInit{
   save() {
     this.taskForm.markAsDirty();
     this.taskForm.markAsTouched();
-    console.log('alo', this.taskForm.dirty)
-    console.log('is: ', this.taskForm.get('title')?.invalid)
-    console.log('is: ', this.taskForm.get('title')?.dirty)
     if(!this.taskForm.invalid && this.taskForm.dirty){
       this.dialogRef.close({
         id: Date.now(),
