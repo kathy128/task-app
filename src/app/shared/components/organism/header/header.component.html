@@ -1,9 +1,9 @@
 <header class="bg-[#FFC1CC] dark:bg-[#8B2D50] p-4 shadow-xl w-full h-[4rem] flex items-center justify-between">
   <div class="flex items-center gap-4 ">
-    <img src="assets/icons/lista-de-tareas.png" alt="task-list-icon" class="w-[3.5rem] h-[3.5rem] transition-transform transform hover:scale-110" loading="lazy">
+    <img src="assets/icons/lista-de-tareas.png" alt="task-list-icon" class="w-[3.5rem] h-[3.5rem] transition-transform transform hover:scale-110">
     <h1 class="tablet:text-2xl mobile:text-xl font-semibold text-[#C40877] dark:text-white">Gestor de Tareas</h1>
   </div>
-  <button (click)="toggleTheme()" class="p-3 rounded-full bg-[#D95991] dark:bg-[#E63985] text-white flex items-center gap-2 transition-all hover:bg-[#C40877] dark:hover:bg-[#FF61A6] shadow-md hover:scale-105">
+  <button (click)="toggleTheme()" class="p-3 rounded-full bg-[#D95991] dark:bg-[#E63985] text-white flex items-center gap-2 transition-all hover:bg-[#C40877] dark:hover:bg-[#FF61A6] shadow-md hover:scale-105 cursor-pointer">
     {{ isDarkMode ? '🌙' : '🔆' }}
   </button>
 </header>

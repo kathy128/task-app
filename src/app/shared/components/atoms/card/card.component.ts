@@ -10,12 +10,13 @@ import {CommonModule} from '@angular/common';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() task: TaskForm =  {id: 0, title: 'Task #', description: 'una tarea', completed: true}
+  @Input() task: TaskForm = {title: '', description: '', complete: 1};
   @Output() complete = new EventEmitter<void>();
   @Output() remove = new EventEmitter<void>();
   @Output() edit = new EventEmitter<void>();
 
   toggleComplete() {
+    this.task.complete = this.task.complete === 0? 1: 0;
     this.complete.emit();
   }
 

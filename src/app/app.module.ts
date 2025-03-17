@@ -1,21 +1,12 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-export const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./pages/main-task/main-task.module').then((m) => m.MainTaskModule),
-    canActivate: [],
-  },
-  {
-    path: '**',
-    redirectTo: '/auth',
-    pathMatch: 'full',
-  }
-];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    BrowserModule,
+  ],
 })
-export class AppRoutingModule {
-}
+
+export class AppModule { }

@@ -1,0 +1,20 @@
+<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50">
+  <div class="bg-pink-100 rounded-lg w-96 p-6 shadow-lg">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-semibold text-pink-600">{{ data.type === 'success' ? 'Éxito' : 'Error' }}</h3>
+      <button (click)="closeDialog()" class="text-pink-600 font-bold text-xl">&times;</button>
+    </div>
+    <div class="flex items-center">
+      <div class="text-2xl mr-4">
+        <span *ngIf="data.type === 'success'" class="text-green-400">✔</span>
+        <span *ngIf="data.type === 'error'" class="text-red-400">❌</span>
+      </div>
+      <p class="text-pink-800">{{ data.message }}</p>
+    </div>
+    <div class="mt-4 text-center">
+      <button (click)="closeDialog()" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>

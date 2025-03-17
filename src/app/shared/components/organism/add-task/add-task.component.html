@@ -19,20 +19,20 @@
     <div class="gap-[0.2rem] flex flex-col">
       <label class="text-[#C40877]" for="description">Estado </label>
       <div class="flex flex-start gap-4">
-        <button (click)="selectStatus('complete')"
-                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 'complete'), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 'complete')}"
-                class="dark:text-[#f8e9eb] p-2 rounded-3xl flex text-sm items-center">Completada
+        <button (click)="selectStatus(1)"
+                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 1), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 1)}"
+                class="dark:text-[#f8e9eb] p-2 rounded-3xl flex text-sm items-center cursor-pointer">Completada
         </button>
-        <button (click)="selectStatus('pending')"
-                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 'pending'), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 'pending')}"
-                class="dark:text-[#f8e9eb] p-2 rounded-3xl text-sm flex items-center">Pendiente
+        <button (click)="selectStatus(0)"
+                [ngClass]="{'bg-[#D95991] dark:bg-[#933558] text-[#f8e9eb]': (taskForm.get('status')?.value === 0), 'dark:bg-[#BA7191] bg-[#FFE5EA] text-[#C40877]': !(taskForm.get('status')?.value === 0)}"
+                class="dark:text-[#f8e9eb] p-2 rounded-3xl text-sm flex items-center cursor-pointer">Pendiente
         </button>
       </div>
     </div>
 
     <div class="flex justify-end gap-2 mt-[1rem]">
-      <button (click)="close()" class="px-4 py-2 bg-[#F4A261] text-white rounded transition-transform transform hover:scale-110">Cancelar</button>
-      <button (click)="save()" class="px-4 py-2 bg-[#6fafbc] text-white rounded transition-transform transform hover:scale-110">Guardar</button>
+      <button (click)="close()" class="px-4 py-2 bg-[#F4A261] text-white rounded transition-transform transform hover:scale-110 cursor-pointer">Cancelar</button>
+      <button (click)="save()" class="px-4 py-2 bg-[#6fafbc] text-white rounded transition-transform transform hover:scale-110 cursor-pointer">Guardar</button>
     </div>
   </form>
 </div>
