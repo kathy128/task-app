@@ -16,8 +16,8 @@ export class CardComponent {
   @Output() edit = new EventEmitter<void>();
 
   toggleComplete() {
-    this.task.complete = this.task.complete === 0? 1: 0;
     this.complete.emit();
+    this.task.complete = this.task.complete === 0? 1: 0;
   }
 
   deleteTask() {
