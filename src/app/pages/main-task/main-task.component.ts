@@ -98,7 +98,7 @@ export class MainTaskComponent implements OnInit {
       id: task.id,
       title: task.title,
       description: task.description,
-      complete: task.complete === 0 ? 1 : 0,
+      complete: task.complete === 1 ? 0 : 1,
     }
     try {
       await this.taskService.editTask(task.id!, body);
