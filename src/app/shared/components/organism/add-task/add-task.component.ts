@@ -7,7 +7,7 @@ import {InfoModalComponent} from '../info-modal/info-modal.component';
 
 @Component({
   selector: 'app-add-task',
-  imports: [ReactiveFormsModule, CommonModule,InfoModalComponent],
+  imports: [ReactiveFormsModule, CommonModule],
   standalone: true,
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'

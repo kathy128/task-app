@@ -13,7 +13,7 @@ export class TaskService {
 
   async getAllTasks(): Promise<TaskForm[]> {
     try {
-      return await firstValueFrom(this.http.get<TaskForm[]>('http://taskapi.somee.com/api/Task'));
+      return await firstValueFrom(this.http.get<TaskForm[]>('https://taskapi.somee.com/api/Task'));
     }catch (error) {
       console.error('Error al crear la tarea', error);
       throw error;
@@ -22,7 +22,7 @@ export class TaskService {
 
   async createTask(body: BodyForm): Promise<TaskForm[]> {
     try {
-      return await firstValueFrom(this.http.post<TaskForm[]>('http://taskapi.somee.com/api/Task', body));
+      return await firstValueFrom(this.http.post<TaskForm[]>('https://taskapi.somee.com/api/Task', body));
     } catch (error) {
       console.error('Error al crear la tarea', error);
       throw error;
@@ -31,7 +31,7 @@ export class TaskService {
 
   async editTask(id: Number, body: BodyForm): Promise<TaskForm[]> {
     try {
-      return await firstValueFrom(this.http.put<TaskForm[]>(`http://taskapi.somee.com/api/Task/${id}`,body))
+      return await firstValueFrom(this.http.put<TaskForm[]>(`https://taskapi.somee.com/api/Task/${id}`,body))
     }catch (e) {
       console.error('Error al editar la tarea', e);
       throw e;
@@ -40,7 +40,7 @@ export class TaskService {
 
   async deleteTask(id: Number) {
     try {
-      return await firstValueFrom(this.http.delete<TaskForm[]>(`http://taskapi.somee.com/api/Task/${id}`))
+      return await firstValueFrom(this.http.delete<TaskForm[]>(`https://taskapi.somee.com/api/Task/${id}`))
     }catch (e) {
       console.error('Error al eliminar la tarea', e);
       throw e;
